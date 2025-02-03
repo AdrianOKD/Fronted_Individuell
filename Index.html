@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Document</title>
+
+    
 </head>
 <body>
     <header> 
+        <h2>DummyReddit</h2>
+        <!-- <div class="container">
+            <div class="sort-section">
+                <button class="sort-button active" onclick="sortPosts('hot')">Hot</button>
+                <button class="sort-button" onclick="sortPosts('new')">New</button>
+                <button class="sort-button" onclick="sortPosts('top')">Top</button>
+            </div> -->
         <nav class="navbar" role="navigation" aria-label="Main Navigation">
             <div class="navbar__container">
-               <a href="/" id="navbar-logo"> WannabeReddit</a> 
+               <a href="/" id="navbar-logo"> BetterReddit</a> 
                <ul class="navbar__menu">
                 <li class="navbar__item">
                     <a href="/" class="navbar__links">Home</a>
@@ -38,6 +47,18 @@
             </div>
         </nav>
     </header>
+    <script>
+
+fetch('https://dummyjson.com/test')
+.then(res => res.json())
+.then(console.log);
+fetch('https://dummyjson.com/users')
+.then(res => res.json())
+.then(console.log);
+fetch('https://dummyjson.com/posts/tags')
+.then(res => res.json())
+.then(console.log);
+    </script>
 
 </body>
 </html>
