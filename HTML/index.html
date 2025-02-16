@@ -18,17 +18,23 @@ Användares inlägg
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/nav.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/Css/home.css"/>
+    <link rel="stylesheet" href="/Css/layout.css"/>
+    <link rel="stylesheet" href="/Css/nav.css"/>
+    <link rel="stylesheet" href="/Css/sidenav.css"/>
+    <script defer type="module" src="/Js/post.js"></script>
+    <script defer type="module" src="/Js/user.js"></script>
+    <script defer type="module" src="/Js/comment.js"></script>
 
     <title>Document</title>
   </head>
   <body>
     
     <div id="page-wrapper">
+      
       <header>
+        
         <nav id="header-left-container">
           <a
             ><img
@@ -40,50 +46,58 @@ Användares inlägg
             <li class="nav-item"><a>Home</a></li>
             <li class="nav-item"><a>Featured</a></li>
             <li class="nav-item"><a>Recommended</a></li>
-           
           </ul>
         </nav>
-        
         <div id="header-right-container">
           <section>
             <h2>Posts from users</h2>
             <div id="posts-list-container">
-                
             </div>
           </section>
-         
         </div>
-        <nav> 
-          <a href="#" class="hamburger__icon"&#9776></a>
-        </nav>
       </header>
+      
       <main>
         <section id="hero-section">
         
         </section>
-
-       
+        
       </main>
     </div>
+    <div id="Sidenav" class="sidenav">
+      <a href="javascript:void(0) class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#"> Create Post </a>
+      
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
     <div class="posts__container">
-        <div class="box">Post 1</div>
-        <div class="box">Post 2</div>
-        <div class="box">Post 3</div>
-        <div class="box">Post 4</div>
+        <div class="box">
+          <div id="Title">Title</div>
+          <div id="Body">body</div>
+          <div id="Tag">Tag</div>
+          <div id="User">User</div>
+
+        </div>
+        
     </div>
     <div class="posts__container">
-        <div class="box">Post 1</div>
         <div class="box">Post 2</div>
-        <div class="box">Post 3</div>
-        <div class="box">Post 4</div>
+      
     </div>
     <div class="posts__container">
-        <div class="box">Post 1</div>
-        <div class="box">Post 2</div>
         <div class="box">Post 3</div>
-        <div class="box">Post 4</div>
-    </div>
- 
     
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("Sidenav").style.width = "250px";
+      }
+    
+      function closeNav() {
+        document.getElementById("Sidenav").style.width = "0";
+      }
+    </script>
   </body>
+  
 </html>

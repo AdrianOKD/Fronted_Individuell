@@ -7,12 +7,13 @@
 nav {
     display: flex;
     align-items: center;
+    background-color: aqua;
 }
-nav {
-    
-}
+
+nav {}
 
 #header-right-container {
     display: flex;
     gap: 0.5rem;
+
 }

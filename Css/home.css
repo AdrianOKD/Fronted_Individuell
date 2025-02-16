@@ -10,17 +10,18 @@ main {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: lightgray;
 }
 
-.posts__container{
-    
+.posts__container {
+
     display: flex;
     flex-wrap: wrap;
 
 }
 
-.box{
-    background-color:darkgray;
+.box {
+    background-color: darkgray;
     display: flex;
 }
 
@@ -51,4 +52,3 @@ main {
 .box {
     margin: 10px 20px;
 }
-
