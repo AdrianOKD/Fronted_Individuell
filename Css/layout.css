@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    margin: 2rem;
+}
+
+#header-left-container {
+    margin-right: auto;
+}
+
+#header-right-container {
+    margin-right: auto;
+}

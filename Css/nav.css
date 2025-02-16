@@ -1,0 +1,18 @@
+#nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+nav {
+    
+}
+
+#header-right-container {
+    display: flex;
+    gap: 0.5rem;
+}

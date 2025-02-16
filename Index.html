@@ -1,64 +1,89 @@
+<!--
+
+knapp (för att skapa ett inlägg)
+navbar
+inputfält
+dropdown för val av användare
+bild
+länkar
+paragrafer
+färger / select
+header
+footer
+huvudinnehåll
+titlar
+Användares inlägg
+-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+
     <title>Document</title>
-
+  </head>
+  <body>
     
-</head>
-<body>
-    <header> 
-        <h2>DummyReddit</h2>
-        <!-- <div class="container">
-            <div class="sort-section">
-                <button class="sort-button active" onclick="sortPosts('hot')">Hot</button>
-                <button class="sort-button" onclick="sortPosts('new')">New</button>
-                <button class="sort-button" onclick="sortPosts('top')">Top</button>
-            </div> -->
-        <nav class="navbar" role="navigation" aria-label="Main Navigation">
-            <div class="navbar__container">
-               <a href="/" id="navbar-logo"> BetterReddit</a> 
-               <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/services.html" class="navbar__links">Services</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/services.html" class="navbar__links">Posts</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/services.html" class="navbar__links">User</a>
-                </li>   
-                <li class="navbar__item">
-                    <a href="/services.html" class="navbar__links">Comments</a>
-                </li> 
-               </ul>
-               <div class="section">
-                <h2>Recent Posts</h2>
-                <div id="postsContainer" class="posts-grid">
-                    <div class="loading">Loading posts...</div>
-                </div>
-            </div>
-            </div>
-            </div>
+    <div id="page-wrapper">
+      <header>
+        <nav id="header-left-container">
+          <a
+            ><img
+              width="100px"
+              src="https://blog.logomyway.com/wp-content/uploads/2020/12/reddit-logo-2.jpg"
+          /></a>
+          <a href="#" class="hamburger__icon"&#9776></a>
+          <ul id="nav-links">
+            <li class="nav-item"><a>Home</a></li>
+            <li class="nav-item"><a>Featured</a></li>
+            <li class="nav-item"><a>Recommended</a></li>
+           
+          </ul>
         </nav>
-    </header>
-    <script>
+        
+        <div id="header-right-container">
+          <section>
+            <h2>Posts from users</h2>
+            <div id="posts-list-container">
+                
+            </div>
+          </section>
+         
+        </div>
+        <nav> 
+          <a href="#" class="hamburger__icon"&#9776></a>
+        </nav>
+      </header>
+      <main>
+        <section id="hero-section">
+        
+        </section>
 
-fetch('https://dummyjson.com/test')
-.then(res => res.json())
-.then(console.log);
-fetch('https://dummyjson.com/users')
-.then(res => res.json())
-.then(console.log);
-fetch('https://dummyjson.com/posts/tags')
-.then(res => res.json())
-.then(console.log);
-    </script>
-
-</body>
+       
+      </main>
+    </div>
+    <div class="posts__container">
+        <div class="box">Post 1</div>
+        <div class="box">Post 2</div>
+        <div class="box">Post 3</div>
+        <div class="box">Post 4</div>
+    </div>
+    <div class="posts__container">
+        <div class="box">Post 1</div>
+        <div class="box">Post 2</div>
+        <div class="box">Post 3</div>
+        <div class="box">Post 4</div>
+    </div>
+    <div class="posts__container">
+        <div class="box">Post 1</div>
+        <div class="box">Post 2</div>
+        <div class="box">Post 3</div>
+        <div class="box">Post 4</div>
+    </div>
+ 
+    
+  </body>
 </html>
