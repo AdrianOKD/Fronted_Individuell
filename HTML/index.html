@@ -23,6 +23,9 @@ Användares inlägg
     <link rel="stylesheet" href="/Css/layout.css"/>
     <link rel="stylesheet" href="/Css/nav.css"/>
     <link rel="stylesheet" href="/Css/sidenav.css"/>
+    <link rel="stylesheet" href="/Css/posts.css"/>
+    <script defer type="module" src="/Js/main.js"></script>
+    <script defer type="module" src="/Js/apiClient.js"></script>
     <script defer type="module" src="/Js/post.js"></script>
     <script defer type="module" src="/Js/user.js"></script>
     <script defer type="module" src="/Js/comment.js"></script>
@@ -41,7 +44,7 @@ Användares inlägg
               width="100px"
               src="https://blog.logomyway.com/wp-content/uploads/2020/12/reddit-logo-2.jpg"
           /></a>
-          <a href="#" class="hamburger__icon"&#9776></a>
+          <a href="#" class="hamburger__icon"&#9776;></a>
           <ul id="nav-links">
             <li class="nav-item"><a>Home</a></li>
             <li class="nav-item"><a>Featured</a></li>
@@ -51,7 +54,6 @@ Användares inlägg
         <div id="header-right-container">
           <section>
             <h2>Posts from users</h2>
-            <div id="posts-list-container">
             </div>
           </section>
         </div>
@@ -71,24 +73,8 @@ Användares inlägg
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-    <div class="posts__container">
-        <div class="box">
-          <div id="Title">Title</div>
-          <div id="Body">body</div>
-          <div id="Tag">Tag</div>
-          <div id="User">User</div>
-
-        </div>
-        
-    </div>
-    <div class="posts__container">
-        <div class="box">Post 2</div>
-      
-    </div>
-    <div class="posts__container">
-        <div class="box">Post 3</div>
     
-    </div>
+        
     <script>
       function openNav() {
         document.getElementById("Sidenav").style.width = "250px";
@@ -98,6 +84,12 @@ Användares inlägg
         document.getElementById("Sidenav").style.width = "0";
       }
     </script>
+    <div id="posts-list-container" class="posts__container">
+      <header class="post-title" ></header>
+      <section class="post-body"> </section>
+      <p class="post-tags" ></p>
+      <div class="post-user"></div>
+    </div>
   </body>
   
 </html>

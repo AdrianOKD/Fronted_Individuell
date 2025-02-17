@@ -1,0 +1,51 @@
+.box {
+    width: 80%;
+    max-width: 600px; 
+    min-height: 150px; 
+    padding: 15px;
+    margin: 10px auto; 
+    border: 1px solid #b02e2e;
+    border-radius: 8px;
+    background-color: #2a8cb9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+    position: relative;
+    overflow: hidden; 
+}
+
+#posts-list-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+}
+
+.post-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.post-body {
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.post-tags {
+    font-size: 14px;
+    color: #555;
+}
+
+.post-user {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+    max-width: 100%;
+}
