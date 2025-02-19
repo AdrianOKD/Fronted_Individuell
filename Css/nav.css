@@ -5,15 +5,30 @@
 }
 
 nav {
-    display: flex;
+    list-style-type: none;
     align-items: center;
-    background-color: aqua;
+    list-style-type: none;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(217, 223, 223);
+    
 }
+li a {
+    display: block;
+    color: rgb(46, 41, 41);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #b3b2b2;
+  }
 
-nav {}
-
-#header-right-container {
+#header-nav-container {
     display: flex;
     gap: 0.5rem;
+    
 
 }
