@@ -1,13 +1,18 @@
+/* layout.css */
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
     display: flex;
-    margin: 2rem;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
 }
-
 #header-left-container {
     margin-right: auto;
 }
