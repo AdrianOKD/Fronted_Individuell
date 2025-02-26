@@ -15,7 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === popup) {
           createPostButton.style.display = 'none';
         }
+        createPostForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            const formData = {
+              title: document.getElementById('postTitle').value,
+              body: document.getElementById('postBody').value,
+              tags: document.getElementById('postTags').value.split(',').map(tag => tag.trim())
+            };
+        
+            console.log('New post data:', formData);
+            
+            createPostForm.reset();
+            popup.style.display = 'none';
       });
     
 })
-
