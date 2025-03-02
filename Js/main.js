@@ -11,7 +11,7 @@ function main() {
         });
     });
 }
-function createPostElement(post,) {
+function createPostElement(post) {
     const postBox = document.createElement("div");
     postBox.classList.add("box");
 

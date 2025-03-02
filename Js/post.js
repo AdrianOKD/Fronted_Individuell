@@ -1,5 +1,5 @@
 export class Post{
-    constructor(id,title, body, tags,reactions, views ){
+    constructor(id,title, body, tags,reactions, views, userId ){
         this.id = id;
         this.title = title;
         this.body = body;
