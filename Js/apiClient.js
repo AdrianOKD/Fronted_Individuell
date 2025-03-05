@@ -30,7 +30,7 @@ export async function fetchPosts() {
 }
 
 export async function fetchUsers(){
-    const response = await fetch('https://dummyjson.com/users');
+    const response = await fetch('https://dummyjson.com/users?limit=200');
     return await response.json();
 }
 export async function fetchComments(){
