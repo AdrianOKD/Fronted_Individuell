@@ -1,18 +1,4 @@
-<!--
-
-knapp (för att skapa ett inlägg)
-navbar
-inputfält
-dropdown för val av användare
-bild
-länkar
-paragrafer
-färger / select
-header
-footer
-huvudinnehåll
-titlar
-Användares inlägg
+<!--index.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +9,13 @@ Användares inlägg
     <link rel="stylesheet" href="/Css/dropdownuser.css"/>
     <link rel="stylesheet" href="/Css/layout.css"/>
     <link rel="stylesheet" href="/Css/nav.css"/>
-    <link rel="stylesheet" href="/Css/sidenav.css"/>
+    <!--<link rel="stylesheet" href="/Css/sidenav.css"/>-->
     <link rel="stylesheet" href="/Css/posts.css"/>
     <link rel="stylesheet" href="/Css/popupPostWindow.css"/>
-    <script defer type="module" src="/Js/main.js"></script>
     <script defer type="module" src="/Js/apiClient.js"></script>
-    <script defer type="module" src="/Js/post.js"></script>
     <script defer type="module" src="/Js/user.js"></script>
-    <script defer type="module" src="/Js/comment.js"></script>
-    <script defer type="module" src="/Js/popupPostWindow.js"></script>
-
+    <script defer type="module" src="/Js/post.js"></script>
+    <script defer type="module" src="/Js/main.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -104,14 +87,15 @@ Användares inlägg
 
     
         
-    <script>
-      function openNav() {
-        document.getElementById("Sidenav").style.width = "250px";
-      }
-    
+  <!--  <script>
       function closeNav() {
         document.getElementById("Sidenav").style.width = "0";
       }
+      function openNav() {
+        document.getElementById("Sidenav").style.width = "250px";
+      }
+  -->
+      
     </script>
     <div id="posts-list-container" class="posts__container">
       <header class="post-title" ></header>

@@ -1,3 +1,4 @@
+/* Post.js */
 export class Post{
     constructor(id,title, body, tags,reactions, views, userId ){
         this.id = id;

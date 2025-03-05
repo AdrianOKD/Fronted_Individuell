@@ -1,17 +1,41 @@
-import {fetchPosts} from "./apiClient.js";
-import {User} from "./user.js";
+/* main.js */
+import {fetchPosts, fetchUsers} from "./apiClient.js";
+import { setupPopup } from "./popupPostWindow.js";
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed");
+    setupPopup();
+    main();
+  });
 
 function main() {
-    fetchPosts().then(response => {
-        const postsContainer = document.getElementById("posts-list-container");
+    let usersArray = {};
 
-        response.posts.forEach(post => {
-            const postElement = createPostElement(post);
+    fetchUsers()
+    .then(userData => {
+        userData.users.forEach(user => {
+            usersArray[user.id] = user;
+            
+        });
+        return fetchPosts();
+    })
+    .then(postsData => {
+        console.log("Posts data received:", postsData);
+        const  postsContainer = document.getElementById("posts-list-container");
+        if (!postsContainer) {
+            console.error("Posts container not found!");
+            return;
+        }
+        postsContainer.innerHTML = "";
+
+        postsData.posts.forEach(post => {
+            const user = usersArray[post.userId];
+            const postElement = createPostElement(post, user);
             postsContainer.appendChild(postElement);
         });
-    });
+    })
 }
-function createPostElement(post) {
+function createPostElement(post, user) {
     const postBox = document.createElement("div");
     postBox.classList.add("box");
 
@@ -27,14 +51,14 @@ function createPostElement(post) {
     tags.classList.add("post-tags");
     tags.innerText = `Tags: ${post.tags.join(", ")}`;
 
-    const user = document.createElement("div");
-    user.classList.add("post-user");
-    user.innerText = `User Name: ${User.user}`;
+    const userElement = document.createElement("div");
+    userElement.classList.add("post-user");
+    userElement.innerText = user ? `User: ${user.firstName} ${user.lastName}` : "Unknown User";
 
     postBox.appendChild(title);
     postBox.appendChild(body);
     postBox.appendChild(tags);
-    postBox.appendChild(user);
+    postBox.appendChild(userElement);
 
     return postBox;
 }
@@ -42,4 +66,3 @@ function truncateText(text, wordLimit = 60) {
     let words = text.split(" ");
     return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : text;
 }
-main();

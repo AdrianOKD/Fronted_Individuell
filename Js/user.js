@@ -1,3 +1,4 @@
+/* user.js */
 export class User{
     constructor(id,username ){
         this.id = id;

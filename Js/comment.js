@@ -1,3 +1,4 @@
+/* Comment.js */
 export class Comment {
     constructor(id, body, postId , likes, user){
         this.id = id; 
