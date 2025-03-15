@@ -35,7 +35,7 @@ function main() {
         });
     })
 }
-function createPostElement(post, user) {
+export function createPostElement(post, user) {
     const postBox = document.createElement("div");
     postBox.classList.add("box");
 
