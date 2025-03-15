@@ -1,6 +1,7 @@
 /* main.js */
 import {fetchPosts, fetchUsers} from "./apiClient.js";
 import { setupPopup } from "./popupPostWindow.js";
+import { Post } from "./post.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed");

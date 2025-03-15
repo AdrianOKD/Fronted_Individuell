@@ -1,5 +1,5 @@
 /* popupPostWindow.js */
-import { Post } from "./post";
+import { Post } from "./post.js";
 import { createPostElement, truncateText } from "./main.js";
 
 export function setupPopup() {
