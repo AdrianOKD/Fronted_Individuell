@@ -1,5 +1,5 @@
 /* popupPostWindow.js */
-
+import { Post } from "./post";
 export function setupPopup() {
   const createPostButton = document.querySelector(".create-post-button");
   const createPostPopup = document.getElementById("createPostPopup");
@@ -37,11 +37,20 @@ export function setupPopup() {
       formData.title,
       formData.body,
       formData.tags,
+      0,
+      0,
+      1,
+
 
     );
+
+    createPostContainer(createPost);
 
 
     createPostForm.reset();
     createPostPopup.style.display = "none";
   });
 }
+function createPostContainer (Post){
+      const postsContainer = getElementById("Post-Container"); 
+    }
