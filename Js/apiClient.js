@@ -13,19 +13,6 @@ export async function fetchPosts() {
         return await response.json();
     } catch (error) {
         console.error("Error fetching posts:", error);
-        // Return mock data if API fails
-        return {
-            posts: [
-                {
-                    id: 1,
-                    title: "Sample Post",
-                    body: "This is a sample post body text that will be displayed on the page.",
-                    tags: ["sample", "test"],
-                    reactions: 5,
-                    userId: 1
-                }
-            ]
-        };
     }
 }
 

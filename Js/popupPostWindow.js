@@ -32,7 +32,14 @@ export function setupPopup() {
         .map((tag) => tag.trim()),
     };
 
-    console.log("New post data:", formData);
+    const createPost = new Post(
+      Date.now(),
+      formData.title,
+      formData.body,
+      formData.tags,
+
+    );
+
 
     createPostForm.reset();
     createPostPopup.style.display = "none";

@@ -22,6 +22,11 @@ nav {
     background-color: rgb(217, 223, 223);
     z-index: 1000;
     padding: 5px 0;
+    border-bottom: none;
+    background-image: linear-gradient(to right, transparent, rgb(85, 85, 85) 5%, rgb(85, 85, 85) 95%, transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
     
 }
 li a {
