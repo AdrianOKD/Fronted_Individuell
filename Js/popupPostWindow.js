@@ -52,5 +52,5 @@ export function setupPopup() {
   });
 }
 function createPostContainer (Post){
-      const postsContainer = getElementById("Post-Container"); 
+      const postsContainer = getElementById("posts-list-container"); 
     }
