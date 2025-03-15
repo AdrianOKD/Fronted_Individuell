@@ -62,7 +62,7 @@ export function createPostElement(post, user) {
 
     return postBox;
 }
-function truncateText(text, wordLimit = 60) {
+export function truncateText(text, wordLimit = 60) {
     let words = text.split(" ");
     return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : text;
 }
