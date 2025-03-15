@@ -1,5 +1,7 @@
 /* popupPostWindow.js */
 import { Post } from "./post";
+import { createPostElement, truncateText } from "./main.js";
+
 export function setupPopup() {
   const createPostButton = document.querySelector(".create-post-button");
   const createPostPopup = document.getElementById("createPostPopup");
@@ -41,7 +43,6 @@ export function setupPopup() {
       0,
       1,
 
-
     );
 
     createPostContainer(createPost);
@@ -53,4 +54,21 @@ export function setupPopup() {
 }
 function createPostContainer (Post){
       const postsContainer = getElementById("posts-list-container"); 
+
+      const defaultUser = {
+        firstName: "Fake",
+        lastName: "User"
+      };   
+  
+      const postElement = createPostElement(Post, defaultUser);
+  
+      if (postsContainer.firstChild) {
+        postsContainer.insertBefore(postElement, postsContainer.firstChild);
+      } else {
+        postsContainer.appendChild(postElement);
+      }
     }
+
+
+    
+   
