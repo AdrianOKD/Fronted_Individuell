@@ -1,12 +1,25 @@
 /* popupPostWindow.js */
 import { Post } from "./post.js";
-import { createPostElement, truncateText } from "./main.js";
+import { createPostElement, truncateText, usersArray } from "./main.js";
 
 export function setupPopup() {
   const createPostButton = document.querySelector(".create-post-button");
   const createPostPopup = document.getElementById("createPostPopup");
   const closeButton = document.querySelector(".close-button");
   const createPostForm = document.getElementById("createPostForm");
+
+  function addUsersDropDown() {
+    addUsersDropDown.innerHTML = "";
+
+    for (user in usersArray)
+    {
+      const user = usersArray[userId];
+      const userDropDown = document.createElement("a")
+      userDropDown.href = "#";
+      userDropDown.textContent = "${user.firstName}, ${user.lastName} ";
+      userDropDown.dataset.userId = user.Id; 
+    }
+  }
 
   closeButton.addEventListener("click", () => {
     createPostPopup.style.display = "none";
