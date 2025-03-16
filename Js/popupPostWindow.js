@@ -7,11 +7,12 @@ export function setupPopup() {
   const createPostPopup = document.getElementById("createPostPopup");
   const closeButton = document.querySelector(".close-button");
   const createPostForm = document.getElementById("createPostForm");
+  const selectedUser = 1;
 
   function addUsersDropDown() {
     addUsersDropDown.innerHTML = "";
 
-    for (user in usersArray)
+    for (userId in usersArray)
     {
       const user = usersArray[userId];
       const userDropDown = document.createElement("a")
@@ -27,6 +28,7 @@ export function setupPopup() {
 
   createPostButton.addEventListener("click", () => {
     createPostPopup.style.display = "block";
+    addUsersDropDown();
   });
 
   window.addEventListener("click", (event) => {
@@ -54,7 +56,7 @@ export function setupPopup() {
       formData.tags,
       0,
       0,
-      1,
+      selectedUser,
 
     );
 
@@ -68,12 +70,12 @@ export function setupPopup() {
 function createPostContainer (Post){
       const postsContainer = document.getElementById("posts-list-container"); 
 
-      const defaultUser = {
+      const user = usersArray[Post.userId] || {
         firstName: "Fake",
         lastName: "User"
       };   
   
-      const postElement = createPostElement(Post, defaultUser);
+      const postElement = createPostElement(Post, user);
   
       if (postsContainer.firstChild) {
         postsContainer.insertBefore(postElement, postsContainer.firstChild);
