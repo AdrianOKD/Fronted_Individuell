@@ -53,7 +53,7 @@ export function setupPopup() {
   });
 }
 function createPostContainer (Post){
-      const postsContainer = getElementById("posts-list-container"); 
+      const postsContainer = document.getElementById("posts-list-container"); 
 
       const defaultUser = {
         firstName: "Fake",

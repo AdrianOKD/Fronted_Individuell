@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPopup();
     main();
   });
-
+  export let usersArray = {};
 function main() {
-    let usersArray = {};
 
     fetchUsers()
     .then(userData => {
