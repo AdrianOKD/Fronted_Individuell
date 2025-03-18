@@ -7,18 +7,24 @@ export function setupPopup() {
   const createPostPopup = document.getElementById("createPostPopup");
   const closeButton = document.querySelector(".close-button");
   const createPostForm = document.getElementById("createPostForm");
-  const selectedUser = 1;
+  let selectedUser = 1;
 
   function addUsersDropDown() {
-    addUsersDropDown.innerHTML = "";
+    const dropdownContent= document.querySelector(".dropdown-content");
+    dropdownContent.innerHTML = "";
 
-    for (userId in usersArray)
+    for (const userId in usersArray)
     {
       const user = usersArray[userId];
       const userDropDown = document.createElement("a")
       userDropDown.href = "#";
-      userDropDown.textContent = "${user.firstName}, ${user.lastName} ";
-      userDropDown.dataset.userId = user.Id; 
+      userDropDown.textContent = `${user.firstName}, ${user.lastName} `;
+      userDropDown.dataset.userId = user.id; 
+      userDropDown.addEventListener("click", () => {
+        selectedUser = user.id;
+        document.querySelector(".dropbtn").textContent = `${user.firstName} ${user.lastName}`;
+      });
+      dropdownContent.appendChild(userDropDown);
     }
   }
 
