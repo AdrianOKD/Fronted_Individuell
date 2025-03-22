@@ -38,6 +38,8 @@ function main() {
 export function createPostElement(post, user) {
     const postBox = document.createElement("div");
     postBox.classList.add("box");
+    postBox.dataset.postId = post.id;
+    postBox.style.cursor = "pointer";
 
     const title = document.createElement("header");
     title.classList.add("post-title");
@@ -60,9 +62,18 @@ export function createPostElement(post, user) {
     postBox.appendChild(tags);
     postBox.appendChild(userElement);
 
+    postBox.addEventListener("click", () => {
+        openPostDetails(post, user);
+    });
+
     return postBox;
 }
 export function truncateText(text, wordLimit = 60) {
     let words = text.split(" ");
     return words.length > wordLimit ? words.slice(0, wordLimit).join(" ") + "..." : text;
+}
+
+function openSelectedPost(post, user){
+    localStorage.setItem('selectedPost', JSON.stringify(post));
+    localStorage.setItem('selectedUser', JSON.stringify(user));
 }
