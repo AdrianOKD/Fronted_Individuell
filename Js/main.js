@@ -76,5 +76,5 @@ export function truncateText(text, wordLimit = 60) {
 function openSelectedPost(post, user){
     localStorage.setItem('selectedPost', JSON.stringify(post));
     localStorage.setItem('selectedUser', JSON.stringify(user));
-    window.location.href='post.html';
+    window.location.href='Posts.html';
 }
