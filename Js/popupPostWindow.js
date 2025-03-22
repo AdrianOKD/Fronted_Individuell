@@ -13,6 +13,8 @@ export function setupPopup() {
     const dropdownContent= document.querySelector(".dropdown-content");
     dropdownContent.innerHTML = "";
 
+    document.querySelector(".dropbtn").textContent = "Select user"
+
     for (const userId in usersArray)
     {
       const user = usersArray[userId];
