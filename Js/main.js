@@ -63,7 +63,7 @@ export function createPostElement(post, user) {
     postBox.appendChild(userElement);
 
     postBox.addEventListener("click", () => {
-        openPostDetails(post, user);
+        openSelectedPost(post, user);
     });
 
     return postBox;
@@ -76,4 +76,5 @@ export function truncateText(text, wordLimit = 60) {
 function openSelectedPost(post, user){
     localStorage.setItem('selectedPost', JSON.stringify(post));
     localStorage.setItem('selectedUser', JSON.stringify(user));
+    window.location.href='post.html';
 }
