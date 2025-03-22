@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   export let usersArray = {};
 function main() {
+    if (document.getElementById('selected-post-container')) {
+        return; 
+    }
 
     fetchUsers()
     .then(userData => {
