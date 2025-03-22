@@ -5,7 +5,11 @@ import { Post } from "./post.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed");
-    setupPopup();
+
+    if(document.querySelector(".create-post-button")){
+        setupPopup();
+    }
+    
     main();
   });
   export let usersArray = {};
