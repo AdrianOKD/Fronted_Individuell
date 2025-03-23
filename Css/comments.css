@@ -1,0 +1,35 @@
+.comment {
+    background-color: rgb(37, 139, 105);
+    border: 10cap;
+    border-radius: 1rem;
+
+}
+
+.comment-section{
+
+    background-color: rgb(30, 54, 46);
+
+    
+    
+    
+}
+
+.commentsList{
+    background-color: blue;
+}
+
+.comments {
+    background-color: blueviolet;
+}
+
+.comment-user {
+    background-color: brown;
+    padding: 12px 16px;
+}
+
+.comment-body {
+    background-color: chartreuse;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+}

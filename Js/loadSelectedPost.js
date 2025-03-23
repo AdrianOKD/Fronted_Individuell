@@ -2,6 +2,7 @@ import { fetchComments } from "/Js/apiClient.js";
 import { createPostElement } from "/Js/main.js";
 import { Comment } from "/Js/comment.js";
 
+
 document.addEventListener("DOMContentLoaded", () => {
   loadSelectedPost();
   loadSelectedPostComments();
@@ -27,7 +28,7 @@ function loadSelectedPostComments() {
   commentSection.id = "comment-section";
 
   const commentsList = document.createElement("div");
-  commentsList.id = "commentList";
+  commentsList.id = "commentsList";
   commentSection.appendChild(commentsList);
 
   const container = document.getElementById("selected-post-container");
