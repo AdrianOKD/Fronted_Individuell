@@ -1,11 +1,14 @@
 import { fetchComments } from "/Js/apiClient.js";
 import { createPostElement } from "/Js/main.js";
 import { Comment } from "/Js/comment.js";
+import { setupCommentPopup } from "/Js/popupCommentWindow.js";
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
   loadSelectedPost();
   loadSelectedPostComments();
+  setupCommentPopup();
 });
 
 function loadSelectedPost() {
@@ -47,6 +50,8 @@ function loadSelectedPostComments() {
   });
 }
 
+
+
 function addCommentToPost(comment, commentList) {
   const comments = document.createElement("div");
   comments.className = "comment";
@@ -58,8 +63,6 @@ function addCommentToPost(comment, commentList) {
   const commentBody = document.createElement("div");
   commentBody.className = "comment-body";
   commentBody.textContent = comment.body;
-
-  console.log("Adding comment:", comment);
 
   comments.appendChild(user);
   comments.appendChild(commentBody);

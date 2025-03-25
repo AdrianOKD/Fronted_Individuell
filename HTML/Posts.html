@@ -20,6 +20,8 @@
     <script defer type="module" src="/Js/post.js"></script>
     <script defer type="module" src="/Js/main.js"></script>
     <script defer type="module" src="/Js/loadSelectedPost.js"></script>
+    <script defer type="module" src="/Js/popupCommentWindow.js"></script>
+
   </head>
   <body>
     
@@ -38,13 +40,22 @@
             <li class="nav-item"><a>Home</a></li>
             <li class="nav-item"><a>Featured</a></li>
             <li class="nav-item"><a>Recommended</a></li>
-
-                    <div>
-                      
+            <div id="comment-popup">
+              <button class="create-comment-button" type="button">Add Comment</button>
+              <div class="popup-window" id="createCommentPopup">
+                <div class="popup-content">
+                  <span class="close-button">&times;</span>
+                  <h2>Add a Comment</h2>
+                  <form id="createCommentForm">
+                    <div class="form-group">
+                      <label for="commentBody">Your Comment:</label>
+                      <textarea id="commentBody" name="commentBody" required></textarea>
+                    </div>
+                    <button type="submit" class="post-button">Submit Comment</button>
+                  </form>
                 </div>
               </div>
             </div>
-          </div>
           </ul>
         </nav>
             </div>
