@@ -67,6 +67,7 @@ export function setupPopup() {
       selectedUser,
 
     );
+  
 
     createPostContainer(createPost);
 
