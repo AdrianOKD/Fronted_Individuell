@@ -1,7 +1,7 @@
 /* popupPostWindow.js */
 import { Post } from "./post.js";
 import { createPostElement, truncateText, usersArray } from "./main.js";
-
+import { addUsersDropDown } from "./dropdownUser.js";
 export function setupPopup() {
   const createPostButton = document.querySelector(".create-post-button");
   const createPostPopup = document.getElementById("createPostPopup");
@@ -9,36 +9,19 @@ export function setupPopup() {
   const createPostForm = document.getElementById("createPostForm");
   let selectedUser = 1;
 
-  function addUsersDropDown() {
-    const dropdownContent= document.querySelector(".dropdown-content");
-    dropdownContent.innerHTML = "";
-
-    document.querySelector(".dropbtn").textContent = "Select user"
-
-    for (const userId in usersArray)
-    {
-      const user = usersArray[userId];
-      const userDropDown = document.createElement("a")
-      userDropDown.href = "#";
-      userDropDown.textContent = `${user.firstName}, ${user.lastName} `;
-      userDropDown.dataset.userId = user.id; 
-      userDropDown.addEventListener("click", () => {
-        selectedUser = user.id;
-        document.querySelector(".dropbtn").textContent = `${user.firstName} ${user.lastName}`;
-      });
-      dropdownContent.appendChild(userDropDown);
-    }
+  function handleUserSelection(userId) {
+    selectedUser = userId;
   }
-
+ 
   closeButton.addEventListener("click", () => {
     createPostPopup.style.display = "none";
   });
 
   createPostButton.addEventListener("click", () => {
     createPostPopup.style.display = "block";
-    addUsersDropDown();
+    addUsersDropDown(createPostForm, handleUserSelection);
   });
-
+  
   window.addEventListener("click", (event) => {
     if (event.target === createPostPopup) {
       createPostPopup.style.display = "none";
@@ -65,12 +48,9 @@ export function setupPopup() {
       0,
       0,
       selectedUser,
-
     );
   
-
     createPostContainer(createPost);
-
 
     createPostForm.reset();
     createPostPopup.style.display = "none";

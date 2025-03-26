@@ -1,34 +1,16 @@
 import { usersArray } from "./main.js";
 
-export function setupUserDropdown(container, onUserSelected) {
-  let dropdownContainer = container.querySelector(".dropdownuser");
+export function addUsersDropDown(container, onUserSelected) {
+  const dropdownContent = container.querySelector(".dropdown-content");
+  const dropdownButton = container.querySelector(".dropbtn");
   
-  if (!dropdownContainer) {
-    dropdownContainer = document.createElement("div");
-    dropdownContainer.className = "dropdownuser";
-    
-    const dropdownButton = document.createElement("button");
-    dropdownButton.className = "dropbtn";
-    dropdownButton.textContent = "Select user";
-    
-    const dropdownContent = document.createElement("div");
-    dropdownContent.className = "dropdown-content";
-    
-    dropdownContainer.appendChild(dropdownButton);
-    dropdownContainer.appendChild(dropdownContent);
-    
-    const submitButton = container.querySelector("button[type='submit']");
-    if (submitButton) {
-      submitButton.parentNode.insertBefore(dropdownContainer, submitButton);
-    } else {
-      container.appendChild(dropdownContainer);
-    }
+  if (dropdownContent) {
+    dropdownContent.innerHTML = "";
   }
   
-  const dropdownContent = dropdownContainer.querySelector(".dropdown-content");
-  const dropdownButton = dropdownContainer.querySelector(".dropbtn");
-  dropdownContent.innerHTML = "";
-  dropdownButton.textContent = "Select user";
+  if (dropdownButton) {
+    dropdownButton.textContent = "Select user";
+  }
   
   for (const userId in usersArray) {
     const user = usersArray[userId];
@@ -39,7 +21,10 @@ export function setupUserDropdown(container, onUserSelected) {
     
     userDropDown.addEventListener("click", () => {
       const selectedUser = user.id;
-      dropdownButton.textContent = `${user.firstName} ${user.lastName}`;
+      
+      if (dropdownButton) {
+        dropdownButton.textContent = `${user.firstName} ${user.lastName}`;
+      }
       
       if (typeof onUserSelected === 'function') {
         onUserSelected(selectedUser);
@@ -48,7 +33,4 @@ export function setupUserDropdown(container, onUserSelected) {
     
     dropdownContent.appendChild(userDropDown);
   }
-  
-  return dropdownContainer;
 }
-
