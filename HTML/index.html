@@ -16,6 +16,8 @@
     <script defer type="module" src="/Js/user.js"></script>
     <script defer type="module" src="/Js/post.js"></script>
     <script defer type="module" src="/Js/main.js"></script>
+    <script defer type="module" src="/Js/dropdownUser.js"></script>
+    <script defer type="module" src="/Js/popupPostWindow.js"></script>
     
   </head>
   <body>
@@ -56,9 +58,8 @@
                       <input type="text" id="postTags" name="postTags">
                     </div>
                     <div>
-                      
                     <div class="dropdownuser">
-                    <button class="dropbtn">Select user</button>
+                    <button type="button" class="dropbtn">Select user</button>
                     <div class="dropdown-content">
                     </div>
                     </div>
@@ -85,16 +86,7 @@
 
     
         
-  <!--  <script>
-      function closeNav() {
-        document.getElementById("Sidenav").style.width = "0";
-      }
-      function openNav() {
-        document.getElementById("Sidenav").style.width = "250px";
-      }
-  -->
-      
-    </script>
+
     <div id="posts-list-container" class="posts__container">
       <header class="post-title" ></header>
       <section class="post-body"> </section>
