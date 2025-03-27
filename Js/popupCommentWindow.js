@@ -18,6 +18,7 @@ export function setupCommentPopup() {
     selectedUser = userId;
   }
   
+  
   closeButton.addEventListener("click", () => {
     commentPopup.style.display = "none";
   });

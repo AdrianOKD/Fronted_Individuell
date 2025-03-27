@@ -1,19 +1,17 @@
-import { fetchComments } from "/Js/apiClient.js";
+import { fetchComments, fetchUsers } from "/Js/apiClient.js";
 import { createPostElement } from "/Js/main.js";
 import { Comment } from "/Js/comment.js";
 import { setupCommentPopup } from "/Js/popupCommentWindow.js";
 
-
-
+let usersArray = {};
 document.addEventListener("DOMContentLoaded", () => {
-  loadSelectedPost();
-  loadSelectedPostComments();
-  setupCommentPopup();
-
-  fetchUsers().then(userData => {
-    userData.users.forEach(user => {
+  fetchUsers().then((userData) => {
+    userData.users.forEach((user) => {
       usersArray[user.id] = user;
     });
+    loadSelectedPost();
+    loadSelectedPostComments();
+    setupCommentPopup();
   });
 });
 
@@ -49,18 +47,16 @@ function loadSelectedPostComments() {
       (comment) => comment.postId === postId
     );
     console.log("Filtered comments for post:", selectedPostComments);
-  console.log("Current post ID:", post.id);
+    console.log("Current post ID:", post.id);
     selectedPostComments.forEach((comment) => {
       addCommentToPost(comment, commentsList);
     });
   });
 }
 
-
-
 function addCommentToPost(comment, commentList) {
   const comments = document.createElement("div");
-  comments.className = "comment";
+  comments.className = "comments";
 
   const user = document.createElement("div");
   user.className = "comment-user";

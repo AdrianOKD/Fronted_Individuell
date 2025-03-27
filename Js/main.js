@@ -15,17 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
             usersArray[user.id] = user;
             
         });
-        loadSelectedPost();
-    loadSelectedPostComments();
-    setupCommentPopup();
-  });
-    });
+        
+    })
     if (!document.getElementById('selected-post-container'))
     {
         main();
     }
     
     main();
+  });
   export let usersArray = {};
 function main() {
     if (document.getElementById('selected-post-container')) {
