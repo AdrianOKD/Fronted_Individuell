@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loadSelectedPost();
   loadSelectedPostComments();
   setupCommentPopup();
+
+  fetchUsers().then(userData => {
+    userData.users.forEach(user => {
+      usersArray[user.id] = user;
+    });
+  });
 });
 
 function loadSelectedPost() {
