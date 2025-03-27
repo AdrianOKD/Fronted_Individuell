@@ -56,7 +56,13 @@ export function createPostElement(post, user) {
     const reactionsContainer = document.createElement("div");
     reactionsContainer.classList.add("reactions-container")
 
-    
+    const likeButton = document.createElement("button");
+    likeButton.classList.add("reaction-button", "like-button");
+    likeButton.innerHTML ="👍 <span class='like-count'>" + post.reactions.likes + "</span>";
+
+    const dislikeButton = document.createElement("button");
+    dislikeButton.classList.add("reaction-button", "dislike-button");
+    dislikeButton.innerHTML = "👎 <span class='dislike-count'> " + post.reactions.dislikes + "</span>";
 
 
   
