@@ -1,4 +1,6 @@
 import { Comment } from "./comment.js";
+import { usersArray } from "./main.js";
+import { addUsersDropDown } from "./dropdownUser.js";
 
 export function setupCommentPopup() {
   const createCommentButton = document.querySelector(".create-comment-button");
@@ -8,8 +10,12 @@ export function setupCommentPopup() {
   
   const post = JSON.parse(localStorage.getItem("selectedPost"));
   const postId = post ? post.id : null;
+
+  let selectedUser = 1;
   
-  const currentUser = JSON.parse(localStorage.getItem("selectedUser"));
+  function handleUserSelection(userId) {
+    selectedUser = userId;
+  }
   
   closeButton.addEventListener("click", () => {
     commentPopup.style.display = "none";
@@ -17,6 +23,7 @@ export function setupCommentPopup() {
   
   createCommentButton.addEventListener("click", () => {
     commentPopup.style.display = "block";
+    addUsersDropDown(createCommentForm, handleUserSelection);
   });
   
   window.addEventListener("click", (event) => {
@@ -30,17 +37,14 @@ export function setupCommentPopup() {
     
     const commentText = document.getElementById("commentBody").value;
     
-    if (commentText.trim() === "") {
-      alert("Please enter a comment");
-      return;
-    }
+    const user = usersArray[selectedUser];
     
     const createComment = new Comment(
       Date.now(),            
       commentText,            
       postId,                 
       0,                      
-      currentUser             
+      user             
     );
     
     addCommentToPost(createComment);
