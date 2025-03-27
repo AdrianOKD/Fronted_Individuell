@@ -9,23 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector(".create-post-button")){
         setupPopup();
     }
-    
-    main();
-  });
-  export let usersArray = {};
-function main() {
-    if (document.getElementById('selected-post-container')) {
-        return; 
-    }
-
     fetchUsers()
     .then(userData => {
         userData.users.forEach(user => {
             usersArray[user.id] = user;
             
         });
-        return fetchPosts();
-    })
+        loadSelectedPost();
+    loadSelectedPostComments();
+    setupCommentPopup();
+  });
+    });
+    if (!document.getElementById('selected-post-container'))
+    {
+        main();
+    }
+    
+    main();
+  export let usersArray = {};
+function main() {
+    if (document.getElementById('selected-post-container')) {
+        return; 
+    }
+
+   fetchPosts()
     .then(postsData => {
         console.log("Posts data received:", postsData);
         const  postsContainer = document.getElementById("posts-list-container");

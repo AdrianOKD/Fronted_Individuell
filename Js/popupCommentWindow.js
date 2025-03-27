@@ -2,6 +2,7 @@ import { Comment } from "./comment.js";
 import { usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
 
+
 export function setupCommentPopup() {
   const createCommentButton = document.querySelector(".create-comment-button");
   const commentPopup = document.getElementById("createCommentPopup");
