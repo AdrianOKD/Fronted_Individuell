@@ -53,6 +53,15 @@ export function createPostElement(post, user) {
     postBox.dataset.postId = post.id;
     postBox.style.cursor = "pointer";
 
+    const reactionsContainer = document.createElement("div");
+    reactionsContainer.classList.add("reactions-container")
+
+    
+
+
+  
+    
+
     const title = document.createElement("header");
     title.classList.add("post-title");
     title.innerText = post.title;
