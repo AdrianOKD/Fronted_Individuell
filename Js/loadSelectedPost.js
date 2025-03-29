@@ -25,7 +25,6 @@ function loadSelectedPost() {
 
   const selectedPostBody = selectedPost.querySelector(".post-body");
   selectedPostBody.innerText = post.body;
-
   container.appendChild(selectedPost);
 }
 

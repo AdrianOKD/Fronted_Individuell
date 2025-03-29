@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   main();
 });
 export let usersArray = {};
+
 function main() {
   if (document.getElementById("selected-post-container")) {
     return;
@@ -110,7 +111,6 @@ export function createPostElement(post, user) {
   postBox.appendChild(userElement);
   postBox.appendChild(reactionsContainer);
 
-  
   postBox.addEventListener("click", () => {
     openSelectedPost(post, user);
   });
@@ -119,11 +119,11 @@ export function createPostElement(post, user) {
 }
 
 function updatePostReactionsInLocalStorage(post) {
-    const storedPost = JSON.parse(localStorage.getItem("selectedPost"));
-    if (storedPost && storedPost.id === post.id) {
-      storedPost.reactions = post.reactions;
-      localStorage.setItem("selectedPost", JSON.stringify(storedPost));
-    }
+  const storedPost = JSON.parse(localStorage.getItem("selectedPost"));
+  if (storedPost && storedPost.id === post.id) {
+    storedPost.reactions = post.reactions;
+    localStorage.setItem("selectedPost", JSON.stringify(storedPost));
+  }
 }
 
 export function truncateText(text, wordLimit = 60) {

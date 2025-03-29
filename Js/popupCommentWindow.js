@@ -48,12 +48,13 @@ export function setupCommentPopup() {
       0,                      
       user             
     );
+
     
     addCommentToPost(createComment);
     
-    const storedComments = JSON.parse(localStorage.getItem("userComments")) || [];
+    const storedComments = JSON.parse(localStorage.getItem("stored_comments")) || [];
     storedComments.push(createComment);
-    localStorage.setItem("userComments", JSON.stringify(storedComments));
+    localStorage.setItem("stored_comments", JSON.stringify(storedComments));
     
     createCommentForm.reset();
     commentPopup.style.display = "none";

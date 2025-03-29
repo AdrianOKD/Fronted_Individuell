@@ -49,6 +49,10 @@ export function setupPopup() {
       0,
       selectedUser,
     );
+
+    const storedPosts = JSON.parse(localStorage.getItem("stored_posts"));
+    storedPosts.push(createPost);
+    localStorage.setItem("stored_posts", JSON.stringify(storedPosts));
   
     createPostContainer(createPost);
 

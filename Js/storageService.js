@@ -1,5 +1,7 @@
 export const STORAGE_KEYS = {
   POSTS: "app_posts",
+  COMMENTS: "app_comments",
+  USERS: "app_users",
   USER_POSTS: "user_posts",
   USER_COMMENTS: "userComments",
 };
