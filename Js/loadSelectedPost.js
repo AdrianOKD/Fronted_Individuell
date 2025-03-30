@@ -59,7 +59,15 @@ function loadSelectedPostComments() {
       }
     });
 
-    const allComments = [...apiPostComments, ...createdPostComments]
+    const commentMap = new Map();
+    apiPostComments.forEach(comment => {
+      commentMap.set(comment.id, comment);
+    });
+    createdPostComments.forEach(comment => {
+      commentMap.set(comment.id, comment);
+    });
+    const allComments = Array.from(commentMap.values());
+
     console.log("Filtered comments for post:", allComments);
     console.log("Current post ID:", post.id);
     allComments.forEach((comment) => {

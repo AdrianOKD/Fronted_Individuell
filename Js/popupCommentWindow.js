@@ -58,8 +58,11 @@ export function setupCommentPopup() {
 
     const appComments = getStoredLocalData(STORAGE_KEYS.COMMENTS);
     if (appComments && appComments.comments) {
-      appComments.comments.push(createComment);
-      storeLocalData(STORAGE_KEYS.COMMENTS, appComments);
+      const commentExists = appComments.comments.some(c => c.id === createComment.id);
+      if (!commentExists) {
+        appComments.comments.push(createComment);
+        storeLocalData(STORAGE_KEYS.COMMENTS, appComments);
+      }
     }
     
     createCommentForm.reset();
