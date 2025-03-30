@@ -2,8 +2,8 @@ export const STORAGE_KEYS = {
   POSTS: "app_posts",
   COMMENTS: "app_comments",
   USERS: "app_users",
-  USER_POSTS: "user_posts",
-  USER_COMMENTS: "userComments",
+  USER_POSTS: "stored_posts",
+  USER_COMMENTS: "stored_comments",
 };
 
 export function getStoredLocalData(key) {
@@ -19,6 +19,6 @@ export function storeLocalData(key, data) {
 export function addUserItem(key, item) {
   const items = getStoredLocalData(key) || [];
   items.push(item);
-  storeData(key, items);
+  storeLocalData(key, items);
   return items;
 }

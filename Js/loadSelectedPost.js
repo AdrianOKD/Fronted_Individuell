@@ -43,12 +43,19 @@ function loadSelectedPostComments() {
 
   fetchComments().then((response) => {
     const postId = Number(post.id);
-    const selectedPostComments = response.comments.filter(
+
+    const apiPostComments = response.comments.filter(
       (comment) => comment.postId === postId
     );
-    console.log("Filtered comments for post:", selectedPostComments);
+    const createdComments = JSON.parse(localStorage.getItem("stored_comments")) || [];
+    const createdPostComments = createdComments.filter(
+      (comment) => Number(comment.postId) === postId
+    );
+
+    const allComments = [...apiPostComments, ...createdPostComments]
+    console.log("Filtered comments for post:", allComments);
     console.log("Current post ID:", post.id);
-    selectedPostComments.forEach((comment) => {
+    allComments.forEach((comment) => {
       addCommentToPost(comment, commentsList);
     });
   });

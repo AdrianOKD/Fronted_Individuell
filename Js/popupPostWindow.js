@@ -2,6 +2,12 @@
 import { Post } from "./post.js";
 import { createPostElement, truncateText, usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
+import {
+  storeLocalData,
+  getStoredLocalData,
+  STORAGE_KEYS,
+} from "./storageService.js";
+
 export function setupPopup() {
   const createPostButton = document.querySelector(".create-post-button");
   const createPostPopup = document.getElementById("createPostPopup");
@@ -12,7 +18,7 @@ export function setupPopup() {
   function handleUserSelection(userId) {
     selectedUser = userId;
   }
- 
+
   closeButton.addEventListener("click", () => {
     createPostPopup.style.display = "none";
   });
@@ -21,7 +27,7 @@ export function setupPopup() {
     createPostPopup.style.display = "block";
     addUsersDropDown(createPostForm, handleUserSelection);
   });
-  
+
   window.addEventListener("click", (event) => {
     if (event.target === createPostPopup) {
       createPostPopup.style.display = "none";
@@ -47,36 +53,38 @@ export function setupPopup() {
       formData.tags,
       0,
       0,
-      selectedUser,
+      selectedUser
     );
 
-    const storedPosts = JSON.parse(localStorage.getItem("stored_posts"));
+    const storedPosts = JSON.parse(localStorage.getItem("stored_posts")) || [];
     storedPosts.push(createPost);
     localStorage.setItem("stored_posts", JSON.stringify(storedPosts));
-  
+
+    const appPosts = getStoredLocalData(STORAGE_KEYS.POSTS);
+    if (appPosts && appPosts.posts) {
+      appPosts.posts.push(createPost);
+      storeLocalData(STORAGE_KEYS.POSTS, appPosts);
+    }
+
     createPostContainer(createPost);
 
     createPostForm.reset();
     createPostPopup.style.display = "none";
   });
 }
-function createPostContainer (Post){
-      const postsContainer = document.getElementById("posts-list-container"); 
+function createPostContainer(Post) {
+  const postsContainer = document.getElementById("posts-list-container");
 
-      const user = usersArray[Post.userId] || {
-        firstName: "Fake",
-        lastName: "User"
-      };   
-  
-      const postElement = createPostElement(Post, user);
-  
-      if (postsContainer.firstChild) {
-        postsContainer.insertBefore(postElement, postsContainer.firstChild);
-      } else {
-        postsContainer.appendChild(postElement);
-      }
-    }
+  const user = usersArray[Post.userId] || {
+    firstName: "Fake",
+    lastName: "User",
+  };
 
+  const postElement = createPostElement(Post, user);
 
-    
-   
+  if (postsContainer.firstChild) {
+    postsContainer.insertBefore(postElement, postsContainer.firstChild);
+  } else {
+    postsContainer.appendChild(postElement);
+  }
+}

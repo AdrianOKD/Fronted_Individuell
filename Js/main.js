@@ -36,7 +36,18 @@ function main() {
     }
     postsContainer.innerHTML = "";
 
-    postsData.posts.forEach((post) => {
+    const createdPosts = JSON.parse(localStorage.getItem("stored_posts")) || [];
+
+    let allPosts = [...postsData.posts];
+
+    createdPosts.forEach((posts) => {
+      const postsExists = allPosts.some((post) => post.id === posts.id);
+      if (!postsExists) {
+        allPosts.push(posts);
+      }
+    });
+
+    allPosts.forEach((post) => {
       const user = usersArray[post.userId];
       const postElement = createPostElement(post, user);
       postsContainer.appendChild(postElement);
@@ -123,6 +134,21 @@ function updatePostReactionsInLocalStorage(post) {
   if (storedPost && storedPost.id === post.id) {
     storedPost.reactions = post.reactions;
     localStorage.setItem("selectedPost", JSON.stringify(storedPost));
+  }
+  const storedPosts = JSON.parse(localStorage.getItem("stored_posts")) || [];
+  const postIndex = storedPosts.findIndex(p => p.id === post.id);
+  if(postIndex !== -1){
+    storedPosts[postIndex].reactions = post.reactions;
+    localStorage.setItem("stored_posts", JSON.stringify(storedPosts));
+  }
+
+  const appPosts = JSON.parse(localStorage.getItem("app_posts"));
+  if(appPosts && appPosts.posts){
+    const appPostIndex = appPosts.posts.findIndex(p => p.id === post.id);
+    if (appPostIndex !== -1 ) {
+      appPosts.posts[appPostIndex].reactions = post.reactions;
+      localStorage.setItem("app_posts", JSON.stringify(appPosts));
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 import { Comment } from "./comment.js";
 import { usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
+import { getStoredLocalData, STORAGE_KEYS, storeLocalData } from "./storageService.js";
 
 
 export function setupCommentPopup() {
@@ -55,6 +56,12 @@ export function setupCommentPopup() {
     const storedComments = JSON.parse(localStorage.getItem("stored_comments")) || [];
     storedComments.push(createComment);
     localStorage.setItem("stored_comments", JSON.stringify(storedComments));
+
+    const appComments = getStoredLocalData(STORAGE_KEYS.COMMENTS);
+    if (appComments && appComments.comments) {
+      appComments.comments.push(createComment);
+      storeLocalData(STORAGE_KEYS.COMMENTS, appComments);
+    }
     
     createCommentForm.reset();
     commentPopup.style.display = "none";
