@@ -46,7 +46,6 @@ export function setupCommentPopup() {
       Date.now(),            
       commentText,            
       postId,                 
-      0,                      
       user             
     );
 

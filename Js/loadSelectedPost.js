@@ -51,6 +51,13 @@ function loadSelectedPostComments() {
     const createdPostComments = createdComments.filter(
       (comment) => Number(comment.postId) === postId
     );
+    createdPostComments.forEach(comment => {
+      if (comment.user) {
+        if (!comment.user.fullName && comment.user.firstName && comment.user.lastName) {
+          comment.user.fullName = `${comment.user.firstName} ${comment.user.lastName}`;
+        }
+      }
+    });
 
     const allComments = [...apiPostComments, ...createdPostComments]
     console.log("Filtered comments for post:", allComments);
@@ -67,7 +74,7 @@ function addCommentToPost(comment, commentList) {
 
   const user = document.createElement("div");
   user.className = "comment-user";
-  user.textContent = `${comment.user.firstName} ${comment.user.lastName} (${comment.user.username})`;
+  user.textContent = `${comment.user.fullName}  (${comment.user.username})`;
 
   const commentBody = document.createElement("div");
   commentBody.className = "comment-body";

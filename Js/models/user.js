@@ -4,6 +4,7 @@ export class User{
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.fullName =`${firstName} ${lastName}`
        
     }
 }
