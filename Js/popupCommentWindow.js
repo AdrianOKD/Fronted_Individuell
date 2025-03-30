@@ -1,4 +1,4 @@
-import { Comment } from "./comment.js";
+import { Comment } from "./models/comment.js";
 import { usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
 import { getStoredLocalData, STORAGE_KEYS, storeLocalData } from "./storageService.js";
@@ -92,13 +92,9 @@ function addCommentToPost(comment) {
   commentBody.className = "comment-body";
   commentBody.textContent = comment.body;
   
-  const likes = document.createElement("div");
-  likes.className = "comment-likes";
-  likes.textContent = `${comment.likes} ${comment.likes === 1 ? 'like' : 'likes'}`;
-  
+ 
   popupCommentElement.appendChild(user);
   popupCommentElement.appendChild(commentBody);
-  popupCommentElement.appendChild(likes);
   
   if (commentsList.firstChild) {
     commentsList.insertBefore(popupCommentElement, commentsList.firstChild);

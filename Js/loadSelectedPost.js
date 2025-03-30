@@ -1,7 +1,7 @@
-import { fetchComments, fetchUsers } from "/Js/apiClient.js";
-import { createPostElement } from "/Js/main.js";
-import { Comment } from "/Js/comment.js";
-import { setupCommentPopup } from "/Js/popupCommentWindow.js";
+import { fetchComments, fetchUsers } from "./apiClient.js";
+import { createPostElement } from "./main.js";
+import { Comment } from "./models/comment.js";
+import { setupCommentPopup } from "./popupCommentWindow.js";
 
 let usersArray = {};
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,7 +67,7 @@ function addCommentToPost(comment, commentList) {
 
   const user = document.createElement("div");
   user.className = "comment-user";
-  user.textContent = `${comment.user.fullName} (${comment.user.username})`;
+  user.textContent = `${comment.user.firstName} ${comment.user.lastName} (${comment.user.username})`;
 
   const commentBody = document.createElement("div");
   commentBody.className = "comment-body";

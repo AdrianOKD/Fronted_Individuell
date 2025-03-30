@@ -1,5 +1,4 @@
-/* popupPostWindow.js */
-import { Post } from "./post.js";
+import { Post } from "./models/post.js";
 import { createPostElement, truncateText, usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
 import {
