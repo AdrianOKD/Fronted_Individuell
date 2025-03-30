@@ -1,5 +1,5 @@
 import { Post } from "./models/post.js";
-import { createPostElement, truncateText, usersArray } from "./main.js";
+import { createPostElement, usersArray } from "./main.js";
 import { addUsersDropDown } from "./dropdownUser.js";
 import {
   storeLocalData,

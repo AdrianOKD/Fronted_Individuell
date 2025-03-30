@@ -1,7 +1,5 @@
-/* main.js */
 import { fetchPosts, fetchUsers } from "./apiClient.js";
 import { setupPopup } from "./popupPostWindow.js";
-import { Post } from "./models/post.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
@@ -40,12 +38,16 @@ function main() {
 
     let allPosts = [...postsData.posts];
 
+    
+
     createdPosts.forEach((posts) => {
       const postsExists = allPosts.some((post) => post.id === posts.id);
       if (!postsExists) {
         allPosts.push(posts);
       }
     });
+
+    allPosts.sort((a, b) => b.id - a.id);
 
     allPosts.forEach((post) => {
       const user = usersArray[post.userId];
@@ -136,16 +138,16 @@ function updatePostReactionsInLocalStorage(post) {
     localStorage.setItem("selectedPost", JSON.stringify(storedPost));
   }
   const storedPosts = JSON.parse(localStorage.getItem("stored_posts")) || [];
-  const postIndex = storedPosts.findIndex(p => p.id === post.id);
-  if(postIndex !== -1){
+  const postIndex = storedPosts.findIndex((p) => p.id === post.id);
+  if (postIndex !== -1) {
     storedPosts[postIndex].reactions = post.reactions;
     localStorage.setItem("stored_posts", JSON.stringify(storedPosts));
   }
 
   const appPosts = JSON.parse(localStorage.getItem("app_posts"));
-  if(appPosts && appPosts.posts){
-    const appPostIndex = appPosts.posts.findIndex(p => p.id === post.id);
-    if (appPostIndex !== -1 ) {
+  if (appPosts && appPosts.posts) {
+    const appPostIndex = appPosts.posts.findIndex((p) => p.id === post.id);
+    if (appPostIndex !== -1) {
       appPosts.posts[appPostIndex].reactions = post.reactions;
       localStorage.setItem("app_posts", JSON.stringify(appPosts));
     }
