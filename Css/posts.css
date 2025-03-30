@@ -1,8 +1,8 @@
-/* posts.css */
+
 .box {
-    width: 80%;
-    max-width: 600px; 
-    min-height: 150px; 
+    width: 100%;
+    max-width: 600px;
+    min-height: 300px;
     padding: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -10,14 +10,27 @@
     background-color: #a3b2b9;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; 
-    gap: 10px; 
+    flex-direction: column;
+    gap: 10px;
     box-sizing: border-box;
     overflow: hidden;
     height: auto;
+    width: auto;
     position: relative;
+    box-sizing: border-box;
 }
 
+#posts-list-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;   
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
 
 
 .post-title {

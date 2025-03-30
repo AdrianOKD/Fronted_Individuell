@@ -27,6 +27,9 @@ nav {
     background-position: bottom;
     background-size: 100% 1px;
     background-repeat: no-repeat;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
     
 }
 li a {
@@ -35,9 +38,14 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px; 
+    
   }
   li a:hover {
-    background-color: #b3b2b2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    
   }
 
 #header-nav-container {
@@ -46,7 +54,15 @@ li a {
     
 
 }
-.create-post-button{
-    margin-left: 1400px;
-    flex-wrap: wrap;
+.create-post-button, .create-comment-button {
+
+    padding: 10px 16px;
+    border-radius: 20px; 
+    border: none;
+    margin: 8px;
+    
+}
+.create-comment-button, .create-post-button :hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
