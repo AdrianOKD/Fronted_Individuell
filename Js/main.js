@@ -25,6 +25,8 @@ function main() {
     return;
   }
 
+  
+
   fetchPosts().then((postsData) => {
     console.log("Posts data received:", postsData);
     const postsContainer = document.getElementById("posts-list-container");
@@ -47,9 +49,13 @@ function main() {
       }
     });
 
-    allPosts.sort((a, b) => b.id - a.id);
+    const postsWithValidUsers = allPosts.filter(post =>{
+      return usersArray[post.userId] !== undefined;
+    });
 
-    allPosts.forEach((post) => {
+    postsWithValidUsers.sort((a, b) => b.id - a.id);
+
+    postsWithValidUsers.forEach((post) => {
       const user = usersArray[post.userId];
       const postElement = createPostElement(post, user);
       postsContainer.appendChild(postElement);
