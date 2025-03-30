@@ -75,7 +75,7 @@ function createPostContainer(Post) {
   const postsContainer = document.getElementById("posts-list-container");
 
   const user = usersArray[Post.userId] || {
-    firstName: "Fake",
+    firstName: "Unknown",
     lastName: "User",
   };
 

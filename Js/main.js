@@ -25,8 +25,6 @@ function main() {
     return;
   }
 
-  
-
   fetchPosts().then((postsData) => {
     console.log("Posts data received:", postsData);
     const postsContainer = document.getElementById("posts-list-container");
@@ -40,8 +38,6 @@ function main() {
 
     let allPosts = [...postsData.posts];
 
-    
-
     createdPosts.forEach((posts) => {
       const postsExists = allPosts.some((post) => post.id === posts.id);
       if (!postsExists) {
@@ -49,7 +45,7 @@ function main() {
       }
     });
 
-    const postsWithValidUsers = allPosts.filter(post =>{
+    const postsWithValidUsers = allPosts.filter((post) => {
       return usersArray[post.userId] !== undefined;
     });
 

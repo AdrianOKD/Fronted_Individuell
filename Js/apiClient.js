@@ -55,7 +55,7 @@ export async function fetchComments() {
       return storedLocalComments;
     }
     console.log("No comments found in localStorage, fetching from API");
-    const response = await fetch("https://dummyjson.com/comments");
+    const response = await fetch("https://dummyjson.com/comments/?limit=0");
     const commentsData = await response.json();
     storeLocalData(STORAGE_KEYS.COMMENTS, commentsData);
     return commentsData;

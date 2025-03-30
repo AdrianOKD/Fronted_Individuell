@@ -45,7 +45,7 @@ export function setupCommentPopup() {
     const createComment = new Comment(
       Date.now(),            
       commentText,            
-      postId,                 
+      postId,                
       user             
     );
 
@@ -64,7 +64,6 @@ export function setupCommentPopup() {
         storeLocalData(STORAGE_KEYS.COMMENTS, appComments);
       }
     }
-    
     createCommentForm.reset();
     commentPopup.style.display = "none";
   });
