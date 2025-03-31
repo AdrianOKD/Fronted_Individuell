@@ -1,6 +1,5 @@
 import { fetchComments, fetchUsers } from "./apiClient.js";
 import { createPostElement } from "./main.js";
-import { Comment } from "./models/comment.js";
 import { setupCommentPopup } from "./popupCommentWindow.js";
 
 let usersArray = {};
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setupCommentPopup();
   });
 });
-
 
 function loadSelectedPost() {
   const post = JSON.parse(localStorage.getItem("selectedPost"));
@@ -47,23 +45,28 @@ function loadSelectedPostComments() {
     const apiPostComments = response.comments.filter(
       (comment) => comment.postId === postId
     );
-    const createdComments = JSON.parse(localStorage.getItem("stored_comments")) || [];
+    const createdComments =
+      JSON.parse(localStorage.getItem("stored_comments")) || [];
     const createdPostComments = createdComments.filter(
       (comment) => Number(comment.postId) === postId
     );
-    createdPostComments.forEach(comment => {
+    createdPostComments.forEach((comment) => {
       if (comment.user) {
-        if (!comment.user.fullName && comment.user.firstName && comment.user.lastName) {
+        if (
+          !comment.user.fullName &&
+          comment.user.firstName &&
+          comment.user.lastName
+        ) {
           comment.user.fullName = `${comment.user.firstName} ${comment.user.lastName}`;
         }
       }
     });
 
     const commentMap = new Map();
-    apiPostComments.forEach(comment => {
+    apiPostComments.forEach((comment) => {
       commentMap.set(comment.id, comment);
     });
-    createdPostComments.forEach(comment => {
+    createdPostComments.forEach((comment) => {
       commentMap.set(comment.id, comment);
     });
     const allComments = Array.from(commentMap.values());

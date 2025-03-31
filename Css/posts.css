@@ -1,7 +1,6 @@
-
 .box {
-    width: 50rem!important;
-    max-width: 600px ;
+    width: 50rem !important;
+    max-width: 600px;
     min-height: 300px;
     min-width: 150px;
     padding: 15px;
@@ -25,7 +24,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 900px;   
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -60,7 +59,7 @@
     max-width: 100%;
 }
 
-.post_container{
+.post_container {
     padding: 20px;
     max-width: 850px;
     margin: 0 auto;
@@ -73,27 +72,25 @@
     margin-bottom: 12px;
     overflow-wrap: break-word;
     line-height: 1.5;
-  }
+}
 
-  .reactions-container {
+.reactions-container {
     display: flex;
     justify-content: flex-start;
     margin-top: auto;
     padding-top: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .reaction-button {
+}
+
+.reaction-button {
     background-color: transparent;
     border-radius: 4px;
     padding: 4px 8px;
     margin-right: 10px;
     cursor: pointer;
     transition: background-color 0.2s;
-  }
-  
-  .reaction-button:hover {
+}
+
+.reaction-button:hover {
     color: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  
+}

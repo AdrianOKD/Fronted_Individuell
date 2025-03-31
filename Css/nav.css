@@ -1,68 +1,74 @@
-/* nav.css */
 #nav-links {
-    list-style: none;
-    display: flex;
-    gap: 0.5rem;
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
 }
+
 body {
-    padding-top: 60px; 
+  padding-top: 60px;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    list-style-type: none;
-    align-items: center;
-    list-style-type: none;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(217, 223, 223);
-    z-index: 1000;
-    padding: 5px 0;
-    border-bottom: none;
-    background-image: linear-gradient(to right, transparent, rgb(85, 85, 85) 5%, rgb(85, 85, 85) 95%, transparent);
-    background-position: bottom;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  list-style-type: none;
+  align-items: center;
+  list-style-type: none;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(217, 223, 223);
+  z-index: 1000;
+  padding: 5px 0;
+  border-bottom: none;
+  background-image: linear-gradient(to right, transparent, rgb(85, 85, 85) 5%, rgb(85, 85, 85) 95%, transparent);
+  background-position: bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
   text-decoration: none;
   transition: all 0.3s ease;
-  
-    
+
+
 }
+
 li a {
-    display: block;
-    color: rgb(46, 41, 41);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 20px; 
-    
-  }
-  li a:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-    
-  }
+  display: block;
+  color: rgb(46, 41, 41);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 20px;
+
+}
+
+li a:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+
+}
 
 #header-nav-container {
-    display: flex;
-    gap: 0.5rem;
-    
+  display: flex;
+  gap: 0.5rem;
+
 
 }
-.create-post-button, .create-comment-button {
 
-    padding: 10px 16px;
-    border-radius: 20px; 
-    border: none;
-    margin: 8px;
-    
+.create-post-button,
+.create-comment-button {
+
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  margin: 8px;
+
 }
-.create-comment-button, .create-post-button :hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+
+.create-comment-button,
+.create-post-button :hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }

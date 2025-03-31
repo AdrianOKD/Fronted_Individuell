@@ -1,17 +1,15 @@
 .comment {
     border: 10cap;
     border-radius: 1rem;
-
 }
 
-#comment-section{
-
+#comment-section {
     margin-top: 20px;
     width: 100%;
     padding-top: 15px;
 }
 
-#commentsList{
+#commentsList {
     display: flex;
     flex-direction: column;
     gap: 15px;
